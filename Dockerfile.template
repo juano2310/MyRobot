@@ -1,16 +1,18 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-node:6
+FROM resin/raspberrypi3-debian:jessie-20161130
 
 RUN apt-get update \
-	&& apt-get install -y \
+	&& apt-get install -y\
 		dnsmasq \
 		hostapd \
 		iproute2 \
 		iw \
-		sense-hat \
 		libdbus-1-dev \
 		libexpat-dev \
 		rfkill \
-	&& rm -rf /var/lib/apt/lists/*
+    python3=3.4.2-2 \
+    raspberrypi-bootloader=1.20161125-1 \
+    sense-hat=1.2 \
+  && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /usr/src/app/
 
