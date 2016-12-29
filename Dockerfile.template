@@ -9,6 +9,7 @@ RUN apt-get update \
 		libdbus-1-dev \
 		libexpat-dev \
 		rfkill \
+    raspberrypi-bootloader=1.20150820-1 \
     sense-hat \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
